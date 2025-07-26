@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ayuda Académica</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="assets/Data10Logo.png">
+</head>
+
+
+<a href="https://wa.me/56953388037?text=Hola!%20Estoy%20interesado%20en%20cotizar%20un%20servicio%20de%20Power%20BI%20o%20Excel%20:%29" class="whatsapp-float" target="_blank" title="Chatea con nosotros por WhatsApp">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="whatsapp-icon">
+</a>
+
+<body>
+  <header class="hero">
+  <div class="hero-container">
+    <div class="hero-text">
+      <img src="assets/Data10Logo.png" alt="Data10 Logo" class="logo">
+      <h1>La Data siempre al 10</h1>
+      <p>Tu Excel o Power BI limpio, claro y profesional.<br><strong>Entrega en menos de 24 horas.</strong></p>
+      <a href="#uploadForm" class="cta">Cotiza Aquí</a>
+    </div>
+  </div>
+</header>
+
+
+  <section class="benefits">
+    <h2>¿Por qué elegirnos?</h2>
+    <div class="cards">
+      <div class="card">Profesionales expertos</div>
+      <div class="card">Entrega en 24 horas</div>
+      <div class="card">100% confidencial</div>
+    </div>
+  </section>
+
+  <section class="showcase">
+    <h2>Ejemplo de Power BI</h2>
+    <div class="image-frame">
+      <img src="assets/powerbiSample.png" alt="Ejemplo Power BI">
+    </div>
+  </section>
+
+  <section class="pricing">
+    <h2>Nuestros Planes</h2>
+    <div class="plan-grid">
+      <div class="plan">
+        <h3>Power BI Básico</h3>
+        <p>$30.000</p>
+        <ul>
+          <li>1 Tablero</li>
+          <li>Limpieza básica de datos</li>
+          <li>Entrega en PBIX + PDF</li>
+        </ul>
+      </div>
+
+      <div class="plan">
+        <h3>Excel Básico</h3>
+        <p>$25.000</p>
+        <ul>
+          <li>Tablas formateadas</li>
+          <li>Fechas por vencer destacadas</li>
+          <li>Gráficos y resúmenes</li>
+        </ul>
+      </div>
+
+      <div class="plan destacado">
+        <h3>Pro</h3>
+        <p>$50.000</p>
+        <ul>
+          <li>Múltiples pestañas de dashboard</li>
+          <li>KPIs y filtros</li>
+          <li>Análisis detallado</li>
+        </ul>
+      </div>
+
+      <div class="plan">
+        <h3>Empresarial</h3>
+        <p>Precio personalizado</p>
+        <ul>
+          <li>Servicio mensual continuo</li>
+          <li>Automatización personalizada</li>
+          <li>Atención prioritaria</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+
+  <form id="uploadForm" enctype="multipart/form-data">
+    <h2>Solicita tu cotización</h2>
+    <label>Nombre:<br>
+      <input type="text" name="nombre" required>
+    </label><br>
+
+    <label>Correo:<br>
+      <input type="email" name="correo" required>
+    </label><br>
+
+    <label>Tipo de servicio:<br>
+      <select name="tipo">
+        <option>Power BI Básico</option>
+        <option>Excel Básico</option>
+        <option>Pro</option>
+        <option>Empresarial</option>
+      </select>
+    </label><br>
+
+    <label>Descripción:<br>
+      <textarea name="descripcion" required></textarea>
+    </label><br>
+
+    <label>Urgencia:<br>
+      <select name="fecha" required>
+        <option>Express (En 24 horas + $20.000)</option>
+        <option>Normal (menos de 4 días)</option>
+      </select>
+    </label><br>
+
+    <label>Archivo Excel:<br>
+      <input type="file" name="archivo" accept=".xls,.xlsx,.csv" required>
+    </label><br><br>
+
+    <button type="submit">Enviar</button>
+    <p id="status"></p>
+  </form>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; 2025 <strong>ElDato10.com</strong> — Datos limpios, decisiones inteligentes.</p>
+      <p>Hecho con 💛 desde Chile</p>
+    </div>
+  </footer>
+
+  <script>
+  document.getElementById("uploadForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const formData = new FormData(form);
+    const status = document.getElementById("status");
+
+    status.textContent = "⏳ Enviando...";
+
+    try {
+      const file = formData.get("archivo");
+      const reader = new FileReader();
+
+      reader.onload = async function () {
+        const base64 = reader.result.split(',')[1];
+
+        const payload = new FormData();
+        payload.append("nombre", formData.get("nombre"));
+        payload.append("correo", formData.get("correo"));
+        payload.append("tipo", formData.get("tipo"));
+        payload.append("descripcion", formData.get("descripcion"));
+        payload.append("fecha", formData.get("fecha"));
+        payload.append("fileName", file.name);
+        payload.append("mimeType", file.type);
+        payload.append("archivo", base64);
+
+        const res = await fetch("https://script.google.com/macros/s/AKfycby9D9TQWrWzwQxWRH_5xLdnYLtzEOzfTFgDkINSSkdQ8E7yJ9hoy1LnCGAyveAjDvvb/exec", {
+          method: "POST",
+          body: payload,
+        });
+
+        const text = await res.text();
+        status.textContent = text;
+        form.reset();
+      };
+
+      reader.readAsDataURL(file);
+    } catch (err) {
+      console.error(err);
+      status.textContent = "❌ Error al enviar. Intenta de nuevo.";
+    }
+  });
+  </script>
+</body>
+</html>

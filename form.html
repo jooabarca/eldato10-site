@@ -1,0 +1,62 @@
+<!-- form.html -->
+<form id="uploadForm" enctype="multipart/form-data">
+  <label>Nombre:<br><input type="text" name="nombre" required></label><br>
+  <label>Correo:<br><input type="email" name="correo" required></label><br>
+  <label>Tipo de tarea:<br>
+    <select name="tipo">
+      <option>Ensayo</option>
+      <option>Informe</option>
+      <option>Tesis</option>
+      <option>Otro</option>
+    </select>
+  </label><br>
+  <label>Descripción:<br><textarea name="descripcion" required></textarea></label><br>
+  <label>Fecha de entrega:<br><input type="date" name="fecha" required></label><br>
+  <label>Archivo Excel:<br><input type="file" name="archivo" accept=".xls,.xlsx,.csv" required></label><br><br>
+  <button type="submit">Enviar</button>
+  <p id="status"></p>
+</form>
+
+<script>
+document.getElementById("uploadForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const form = e.target;
+  const formData = new FormData(form);
+  const status = document.getElementById("status");
+
+  status.textContent = "Enviando...";
+
+  try {
+    const file = formData.get("archivo");
+    const reader = new FileReader();
+
+    reader.onload = async function () {
+      const base64 = reader.result.split(',')[1];
+
+      const payload = new FormData();
+      payload.append("nombre", formData.get("nombre"));
+      payload.append("correo", formData.get("correo"));
+      payload.append("tipo", formData.get("tipo"));
+      payload.append("descripcion", formData.get("descripcion"));
+      payload.append("fecha", formData.get("fecha"));
+      payload.append("fileName", file.name);
+      payload.append("mimeType", file.type);
+      payload.append("archivo", base64);
+
+      const res = await fetch("https://script.google.com/macros/s/AKfycby9D9TQWrWzwQxWRH_5xLdnYLtzEOzfTFgDkINSSkdQ8E7yJ9hoy1LnCGAyveAjDvvb/exec", {
+        method: "POST",
+        body: payload,
+      });
+
+      const text = await res.text();
+      status.textContent = text;
+      form.reset();
+    };
+
+    reader.readAsDataURL(file);
+  } catch (err) {
+    console.error(err);
+    status.textContent = "Error al enviar. Intenta de nuevo.";
+  }
+});
+</script>

@@ -1,0 +1,341 @@
+/* --- RESET & GENERAL --- */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+section {
+  padding: 3rem 2rem;
+}
+
+/* --- HERO / HEADER --- */
+header.hero {
+  background: linear-gradient(135deg, #f0c000, #444);
+  color: white;
+  padding: 4rem 2rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.logo {
+  height: 200px;
+  width: auto;
+  margin-bottom: 1.5rem;
+  animation: float 2s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+header.hero h1 {
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+header.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.cta {
+  background-color: white;
+  color: #f0c000;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+
+.cta:hover {
+  background-color: #f0c000;
+  color: white;
+}
+
+/* --- BENEFICIOS --- */
+.benefits h2, .formulario h2 {
+  text-align: center;
+  color: #f0c000;
+  margin-bottom: 2rem;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.card {
+  background-color: #fff;
+  border-left: 5px solid #f0c000;
+  padding: 1rem;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  min-width: 200px;
+  text-align: center;
+}
+
+/* --- PLANES EN 2x2 --- */
+.pricing h2 {
+  text-align: center;
+  color: #f0c000;
+  margin-bottom: 2rem;
+}
+
+.plan-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 900px; /* <-- más chico que antes */
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.plan {
+  background: #fff;
+  border-left: 6px solid #f0c000;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+}
+
+.plan:hover {
+  transform: scale(1.02);
+}
+
+.plan h3 {
+  margin-top: 0;
+  color: #444;
+}
+
+.plan p {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #f0c000;
+}
+
+.plan ul {
+  padding-left: 1.2rem;
+  margin-top: 1rem;
+}
+
+.plan ul li {
+  margin-bottom: 0.5rem;
+}
+
+/* --- FORMULARIO --- */
+form {
+  max-width: 500px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+form label {
+  display: block;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+form input,
+form select,
+form textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.25rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: inherit;
+}
+
+form button {
+  background-color: #f0c000;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+form button:hover {
+  background-color: #e0b000;
+}
+
+#status {
+  text-align: center;
+  margin-top: 1rem;
+  color: green;
+}
+
+/* --- WHATSAPP FLOAT BUTTON --- */
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+  text-decoration: none;
+}
+
+.whatsapp-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease;
+}
+
+.whatsapp-icon:hover {
+  transform: scale(1.1);
+}
+
+footer.footer {
+  background: linear-gradient(to right, #222, #333);
+  color: #fff;
+  padding: 2rem 1rem;
+  text-align: center;
+  font-size: 0.95rem;
+  margin-top: 2rem;
+  border-top: 4px solid #f0c000;
+}
+
+.footer-content p {
+  margin: 0.5rem 0;
+}
+
+.footer-content strong {
+  color: #f0c000;
+}
+
+.destacado {
+  border-left: 6px solid #f0c000;
+  border-top: 4px solid #f0c000;
+  background: #fffdf5;
+  box-shadow: 0 0 0 3px #ffe580aa, 0 6px 12px rgba(0,0,0,0.15);
+  transform: scale(1.02);
+  position: relative;
+  z-index: 1;
+}
+
+.destacado::before {
+  content: "⭐ Más popular";
+  position: absolute;
+  top: -12px;
+  left: -12px;
+  background: #f0c000;
+  color: #fff;
+  font-size: 0.75rem;
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-weight: bold;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.showcase {
+  background-color: #fff;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.showcase h2 {
+  color: #f0c000;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.image-frame {
+  display: inline-block;
+  border: 8px solid #f0c000;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  overflow: hidden;
+  max-width: 90%;
+}
+
+.image-frame img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+form {
+  margin-bottom: 4rem; /* Añade espacio antes del footer */
+}
+
+/* --- RESPONSIVE DESIGN --- */
+@media (max-width: 768px) {
+  header.hero {
+    flex-direction: column;
+    padding: 2rem 1rem;
+  }
+
+  .logo {
+    height: 120px;
+  }
+
+  header.hero h1 {
+    font-size: 2rem;
+  }
+
+  header.hero p {
+    font-size: 1rem;
+  }
+
+  .cta {
+    font-size: 1rem;
+    padding: 0.6rem 1.2rem;
+  }
+
+  .cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .plan-grid {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+
+  .image-frame {
+    max-width: 100%;
+    border-width: 4px;
+  }
+
+  form {
+    padding: 1.5rem 1rem;
+    margin: 0 1rem 4rem;
+  }
+
+  form label {
+    font-size: 0.95rem;
+  }
+
+  footer.footer {
+    font-size: 0.85rem;
+    padding: 1.5rem 1rem;
+  }
+
+  .whatsapp-icon {
+    width: 50px;
+    height: 50px;
+  }
+}
