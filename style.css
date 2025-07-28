@@ -357,6 +357,10 @@ footer.footer {
 
   }
 
+  .nav-logo {
+    display: none;
+  }
+    
 
   .logo {
     height: 120px;
