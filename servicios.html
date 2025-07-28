@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Servicios – El Dato 10</title>
+  <meta name="description" content="Soluciones con Excel, Power BI, automatización, Python y APIs. Servicios personalizados para tus datos.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/webp" href="assets/Dato10Logo_clean.webp">
+</head>
+<body class="dark-mode">
+
+  <nav class="navbar">
+    <div class="navbar-container">
+      <a class="nav-logo" href="index.html">El Dato 10</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="servicios.html" class="active">Servicios</a></li>
+        <li><a href="index.html#pricing">Precios</a></li>
+        <li><a href="index.html#uploadForm">Contacto</a></li>
+      </ul>
+    </div>
+  </nav>
+
+    
+  <section class="servicios fade-in">
+    <h2>Nuestros Servicios</h2>
+    <div class="servicios-contenido">
+      <p><strong>¿Cómo nació El Dato 10?</strong><br>
+      Esta página nació de una simple pero poderosa observación: muchas personas tienen datos valiosos, pero no saben cómo presentarlos. Desde emprendedores hasta estudiantes, pasando por ONGs y áreas de operaciones — todos necesitan ayuda para que sus números hablen por ellos. Así nació El Dato 10: para transformar datos en decisiones.</p>
+
+      <p><strong>¿A quién ayudamos?</strong><br>
+      Nuestro público son personas reales, no técnicos. Usuarios que tienen un Excel, una base de datos o una idea, pero no el tiempo ni las herramientas para hacerla brillar. Existen soluciones grandes (y caras) para empresas, pero nadie ofrece alternativas accesibles para un oficinista, estudiante o emprendedor. Nos buscan porque entregamos rápido, sin enredos, y hablamos su idioma.</p>
+
+      <p><strong>¿Qué hacemos?</strong><br>
+      Ofrecemos soluciones a medida para tus datos:</p>
+
+      <ul>
+        <li>Limpieza y transformación de datos en Excel: uso avanzado de tablas dinámicas, segmentadores, Power Query, validación de datos, formato condicional y automatizaciones simples con macros.</li>
+        
+        <li>Dashboards profesionales en Power BI: construcción de KPIs, uso de DAX, gráficos interactivos, modelado de datos, filtros dinámicos y storytelling visual adaptado a distintos públicos.</li>
+        
+        <li>Automatización con Power Automate: flujos que actualizan dashboards automáticamente, envío de reportes por correo, notificaciones a Teams, integración con SharePoint, Outlook y Excel online.</li>
+        
+        <li>Scripts en Python para integración de APIs: extracción y normalización de datos desde Shopify, Google Analytics, CRMs, Airtable, Notion, etc. Uso de `pandas`, `requests`, `json`, y generación de archivos para análisis.</li>
+        
+        <li>Actualizaciones automáticas (refresh) y conexión a bases de datos: integración con SQL Server, PostgreSQL o Excel en la nube, para mantener la información actualizada sin intervención manual.</li>
+
+        <li>También trabajamos con otras tecnologías y herramientas según tus necesidades. Si no estás seguro de si lo que necesitas se puede hacer, ¡pregúntanos sin compromiso!</li>
+        </ul>
+
+
+      <p>¿Tienes una idea y no sabes si se puede? Escríbenos y vemos cómo llevarla al 100.</p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; 2025 <strong>ElDato10.com</strong> — Datos limpios, decisiones inteligentes.</p>
+      <p>Hecho con 💛 desde Chile</p>
+    </div>
+  </footer>
+
+  <script>
+    const faders = document.querySelectorAll('.fade-in');
+
+    const appear = () => {
+        faders.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+            el.classList.add('visible');
+        }
+        });
+    };
+
+    window.addEventListener('scroll', appear);
+    window.addEventListener('load', appear);
+    </script>
+</body>
+</html>

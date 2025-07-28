@@ -3,9 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>El Dato 10</title>
+  <meta property="og:title" content="El Dato 10 – Power BI y Excel a toda velocidad">
+  <meta property="og:description" content="Entregamos tu dashboard en menos de 24 horas. Profesional, claro, confidencial.">
+  <meta property="og:image" content="https://www.eldato10.com/assets/Dato10Logo_clean.webp">
+  <meta property="og:url" content="https://www.eldato10.com">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>El Dato 10 – Power BI y Excel en menos de 24 horas</title>
+  <meta name="description" content="Servicios rápidos y profesionales de Power BI y Excel. Recibe dashboards limpios, claros y listos para usar en menos de 24 horas.">
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" type="image/png" href="assets/Data10Logo.png">
+  <link rel="icon" type="image/png" href="assets/Dato10Logo.png">
+  <link rel="icon" type="image/webp" href="assets/Dato10Logo.webp">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
 </head>
@@ -27,10 +34,10 @@
 <body class="dark-mode">
   <nav class="navbar">
     <div class="navbar-container">
-      <span class="nav-logo">El Dato 10</span>
+      <a href="#hero" class="nav-logo">El Dato 10</a>
       <ul class="nav-links">
         <li><a href="#hero">Inicio</a></li>
-        <li><a href="#benefits">Servicios</a></li>
+        <li><a href="servicios.html">Servicios</a></li>
         <li><a href="#pricing">Precios</a></li>
         <li><a href="#uploadForm">Contacto</a></li>
       </ul>
@@ -40,7 +47,7 @@
   <header class="hero" id="hero">
   <div class="hero-container">
     <div class="hero-content">
-      <img src="assets/Data10Logo.png" alt="Data10 Logo" class="logo">
+      <img src="assets/Dato10Logo.webp" alt="Logo camiseta Dato 10, servicios de Power BI y Excel" class="logo" loading="lazy">
       <h1>La Data siempre al 10</h1>
       <p>Tu Excel o Power BI limpio, claro y profesional.<br><strong>Entrega en menos de 24 horas.</strong></p>
       <a href="#uploadForm" class="cta">Cotiza Aquí</a>
@@ -52,11 +59,21 @@
   <section class="benefits fade-in">
     <h2>¿Por qué elegirnos?</h2>
     <div class="cards">
-      <div class="card">Profesionales expertos</div>
-      <div class="card">Entrega en 24 horas</div>
-      <div class="card">100% confidencial</div>
+      <div class="card">
+        <h3>Expertos en datos</h3>
+        <p>Dominamos Excel, Power BI, Python y automatización. No improvisamos, lo hacemos bien desde el primer intento.</p>
+      </div>
+      <div class="card">
+        <h3>Velocidad sin perder calidad</h3>
+        <p>Te entregamos en menos de 24 horas, con un resultado que parece hecho por una agencia (pero a precio justo).</p>
+      </div>
+      <div class="card">
+        <h3>Confidencialidad garantizada</h3>
+        <p>Tu archivo no se comparte, no se guarda, no se analiza más allá del trabajo. Tratamos tus datos como si fueran secretos bancarios.</p>
+      </div>
     </div>
   </section>
+
 
   <section class="reviews fade-in" id="reviews">
     <h2>Lo que dicen nuestros clientes</h2>
@@ -180,6 +197,14 @@
     <p id="status"></p>
   </form>
 
+  <div style="text-align: center; color: #ccc; font-size: 0.95rem; margin: 2rem auto;">
+    ¿Tienes dudas?
+    <a href="https://wa.me/56953388037" target="_blank" style="color: #f0c000; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem;">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 20px; height: 20px;">
+      Escríbenos por WhatsApp
+    </a>
+  </div>
+
   <footer class="footer">
     <div class="footer-content">
       <p>&copy; 2025 <strong>ElDato10.com</strong> — Datos limpios, decisiones inteligentes.</p>
@@ -231,19 +256,20 @@
   });
   </script>
   <script>
-  const faders = document.querySelectorAll('.fade-in');
+    const faders = document.querySelectorAll('.fade-in');
 
-  const appear = () => {
-    faders.forEach(el => {
-      const rect = el.getBoundingClientRect();
-      if (rect.top < window.innerHeight - 100) {
-        el.classList.add('visible');
-      }
-    });
-  };
+    const appear = () => {
+      faders.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          el.classList.add('visible');
+        }
+      });
+    };
 
-  window.addEventListener('scroll', appear);
-  window.addEventListener('load', appear);
-</script>
+    window.addEventListener('scroll', appear);
+    window.addEventListener('load', appear);
+  </script>
+
 </body>
 </html>
