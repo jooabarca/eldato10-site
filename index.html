@@ -6,6 +6,8 @@
   <title>El Dato 10</title>
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/png" href="assets/Data10Logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
 </head>
 
 
@@ -13,8 +15,29 @@
   <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="whatsapp-icon">
 </a>
 
-<body>
-  <header class="hero">
+<script>
+  // Activa/desactiva modo oscuro
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "d") {
+      document.body.classList.toggle("dark-mode");
+    }
+  });
+</script>
+
+<body class="dark-mode">
+  <nav class="navbar">
+    <div class="navbar-container">
+      <span class="nav-logo">El Dato 10</span>
+      <ul class="nav-links">
+        <li><a href="#hero">Inicio</a></li>
+        <li><a href="#benefits">Servicios</a></li>
+        <li><a href="#pricing">Precios</a></li>
+        <li><a href="#uploadForm">Contacto</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="hero" id="hero">
   <div class="hero-container">
     <div class="hero-text">
       <img src="assets/Data10Logo.png" alt="Data10 Logo" class="logo">
@@ -26,7 +49,7 @@
 </header>
 
 
-  <section class="benefits">
+  <section class="benefits fade-in">
     <h2>¿Por qué elegirnos?</h2>
     <div class="cards">
       <div class="card">Profesionales expertos</div>
@@ -35,14 +58,44 @@
     </div>
   </section>
 
-  <section class="showcase">
-    <h2>Ejemplo de Power BI</h2>
-    <div class="image-frame">
-      <img src="assets/powerbiSample.png" alt="Ejemplo Power BI">
+  <section class="reviews fade-in" id="reviews">
+    <h2>Lo que dicen nuestros clientes</h2>
+    <div class="review-grid">
+      <div class="review-card">
+        <h3>Carla Román</h3>
+        <p class="stars">★★★★★</p>
+        <p class="texto">Increíble! Me ayudó a ordenar toda la info del curso. Muy profesional.</p>
+      </div>
+      <div class="review-card">
+        <h3>Nicolás Pino</h3>
+        <p class="stars">★★★☆☆</p>
+        <p class="texto">Buen trabajo, pero el archivo llegó con algunas celdas sin formato. Aun asi, util.</p>
+      </div>
+      <div class="review-card">
+        <h3>Valentina S.</h3>
+        <p class="stars">★★★★★</p>
+        <p class="texto">Se nota el nivel. Mi jefe creyó que lo había hecho una agencia internacional</p>
+      </div>
+      <div class="review-card">
+        <h3>Pablo Elías</h3>
+        <p class="stars">★★★★☆</p>
+        <p class="texto">Todo bien. Rápido, limpio, funcional</p>
+      </div>
+      <div class="review-card">
+        <h3>Fernanda UX</h3>
+        <p class="stars">★★★★★</p>
+        <p class="texto">Esteticamente hermoso. Me encanto el uso de colores y espaciado</p>
+      </div>
+      <div class="review-card">
+        <h3>Mateo Jorquera</h3>
+        <p class="stars">★★★★★</p>
+        <p class="texto">Me entregaron el archivo con formato condicional, filtros dinámicos y sin errores. Gracias totales!</p>
+      </div>
     </div>
   </section>
 
-  <section class="pricing">
+
+  <section class="pricing fade-in" id="pricing">
     <h2>Nuestros Planes</h2>
     <div class="plan-grid">
       <div class="plan">
@@ -89,7 +142,7 @@
 
 
 
-  <form id="uploadForm" enctype="multipart/form-data">
+  <form id="uploadForm" enctype="multipart/form-data" class="fade-in">
     <h2>Solicita tu cotización</h2>
     <label>Nombre:<br>
       <input type="text" name="nombre" required>
@@ -114,7 +167,7 @@
 
     <label>Urgencia:<br>
       <select name="fecha" required>
-        <option>Express (En 24 horas + $20.000)</option>
+        <option>Express (En menos de 24 horas + $20.000)</option>
         <option>Normal (menos de 4 días)</option>
       </select>
     </label><br>
@@ -177,5 +230,20 @@
     }
   });
   </script>
+  <script>
+  const faders = document.querySelectorAll('.fade-in');
+
+  const appear = () => {
+    faders.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 100) {
+        el.classList.add('visible');
+      }
+    });
+  };
+
+  window.addEventListener('scroll', appear);
+  window.addEventListener('load', appear);
+</script>
 </body>
 </html>

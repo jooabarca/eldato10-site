@@ -1,21 +1,23 @@
-/* --- RESET & GENERAL --- */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Inter', sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f4f4f4;
-  color: #333;
+  background-color: #1c1c1c;
+  color: #f2f2f2;
+  line-height: 1.6;
 }
 
 section {
-  padding: 3rem 2rem;
+  padding: 5rem 2rem;
 }
 
-/* --- HERO / HEADER --- */
 header.hero {
-  background: linear-gradient(135deg, #f0c000, #444);
-  color: white;
-  padding: 4rem 2rem;
+  background: linear-gradient(135deg, #333, #1c1c1c);
+  color: #f2f2f2;
+  padding: 6rem 2rem;
   text-align: center;
   display: flex;
   align-items: center;
@@ -30,7 +32,7 @@ header.hero {
 .logo {
   height: 200px;
   width: auto;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
   animation: float 2s ease-in-out infinite;
 }
 
@@ -40,145 +42,213 @@ header.hero {
 }
 
 header.hero h1 {
-  font-size: 2.8rem;
-  margin-bottom: 1rem;
+  font-size: 3rem;
+  margin-bottom: 1.2rem;
   font-weight: 700;
 }
 
 header.hero p {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
+  font-size: 1.25rem;
+  margin-bottom: 2.5rem;
 }
 
 .cta {
-  background-color: white;
-  color: #f0c000;
-  padding: 0.75rem 1.5rem;
+  background-color: #f0c000;
+  color: #1c1c1c;
+  padding: 0.85rem 1.8rem;
   border-radius: 8px;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 600;
   box-shadow: 0 4px 6px rgba(0,0,0,0.2);
   transition: all 0.3s ease;
 }
 
 .cta:hover {
-  background-color: #f0c000;
-  color: white;
+  background-color: #ffe580;
+  color: #000;
 }
 
-/* --- BENEFICIOS --- */
+button,
+.cta,
+.plan,
+.card,
+input,
+select,
+textarea {
+  transition: all 0.3s ease;
+}
+
+.card:hover,
+.plan:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
 .benefits h2, .formulario h2 {
   text-align: center;
   color: #f0c000;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
+  font-size: 2rem;
 }
 
 .cards {
   display: flex;
   justify-content: center;
-  gap: 1rem;
+  gap: 1.5rem;
   flex-wrap: wrap;
 }
 
 .card {
-  background-color: #fff;
+  background-color: #2a2a2a;
   border-left: 5px solid #f0c000;
-  padding: 1rem;
-  border-radius: 6px;
+  padding: 2rem;
+  border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  min-width: 200px;
+  min-width: 220px;
   text-align: center;
+  font-size: 1.05rem;
 }
 
-/* --- PLANES EN 2x2 --- */
 .pricing h2 {
   text-align: center;
   color: #f0c000;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
+  font-size: 2rem;
 }
 
 .plan-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  max-width: 900px; /* <-- más chico que antes */
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem;
+  max-width: 1000px;
   margin: 0 auto;
-  padding: 1rem;
+  padding: 2rem;
 }
 
 .plan {
-  background: #fff;
+  background: #2a2a2a;
   border-left: 6px solid #f0c000;
   border-radius: 8px;
-  padding: 1.5rem;
+  padding: 2rem;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  transition: transform 0.2s ease;
-}
-
-.plan:hover {
-  transform: scale(1.02);
 }
 
 .plan h3 {
   margin-top: 0;
-  color: #444;
+  color: #f2f2f2;
+  font-size: 1.3rem;
 }
 
 .plan p {
-  font-size: 1.2rem;
-  font-weight: bold;
+  font-size: 1.3rem;
+  font-weight: 600;
   color: #f0c000;
 }
 
 .plan ul {
   padding-left: 1.2rem;
-  margin-top: 1rem;
+  margin-top: 1.2rem;
 }
 
 .plan ul li {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.6rem;
 }
 
-/* --- FORMULARIO --- */
-form {
-  max-width: 500px;
-  margin: 0 auto;
-  background-color: #fff;
-  padding: 2rem;
+.destacado {
+  border-left: 6px solid #f0c000;
+  border-top: 4px solid #f0c000;
+  background: #3a3a3a;
+  box-shadow: 0 0 0 3px #f0c00066, 0 6px 12px rgba(0,0,0,0.15);
+  transform: scale(1.02);
+  position: relative;
+  z-index: 1;
+}
+
+.destacado::before {
+  content: "⭐ Más popular";
+  position: absolute;
+  top: -12px;
+  left: -12px;
+  background: #f0c000;
+  color: #1c1c1c;
+  font-size: 0.75rem;
+  padding: 4px 8px;
   border-radius: 8px;
+  font-weight: bold;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.showcase {
+  background-color: #2a2a2a;
+  padding: 5rem 2rem;
+  text-align: center;
+}
+
+.showcase h2 {
+  color: #f0c000;
+  font-size: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.image-frame {
+  display: inline-block;
+  border: 8px solid #f0c000;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+  max-width: 90%;
+}
+
+.image-frame img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+form {
+  max-width: 540px;
+  margin: 0 auto 5rem;
+  background-color: #2a2a2a;
+  padding: 3rem 2rem;
+  border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 form label {
   display: block;
-  margin-bottom: 1rem;
-  font-weight: bold;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  font-size: 1rem;
 }
 
 form input,
 form select,
 form textarea {
   width: 100%;
-  padding: 0.5rem;
-  margin-top: 0.25rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  padding: 0.6rem;
+  margin-top: 0.3rem;
+  background-color: #1e1e1e;
+  color: #f2f2f2;
+  border: 1px solid #555;
+  border-radius: 6px;
   font-family: inherit;
+  font-size: 1rem;
 }
 
 form button {
   background-color: #f0c000;
-  color: #fff;
-  padding: 0.75rem 1.5rem;
+  color: #1c1c1c;
+  padding: 0.85rem 1.8rem;
   border: none;
-  border-radius: 4px;
-  font-weight: bold;
+  border-radius: 6px;
+  font-weight: 600;
   cursor: pointer;
-  transition: background 0.3s ease;
+  font-size: 1rem;
 }
 
 form button:hover {
-  background-color: #e0b000;
+  background-color: #ffe580;
+  color: #000;
 }
 
 #status {
@@ -187,7 +257,6 @@ form button:hover {
   color: green;
 }
 
-/* --- WHATSAPP FLOAT BUTTON --- */
 .whatsapp-float {
   position: fixed;
   bottom: 20px;
@@ -197,23 +266,23 @@ form button:hover {
 }
 
 .whatsapp-icon {
-  width: 60px;
-  height: 60px;
+  width: 90px;
+  height: 90px;
   border-radius: 50%;
   box-shadow: 0 4px 8px rgba(0,0,0,0.3);
   transition: transform 0.3s ease;
 }
 
 .whatsapp-icon:hover {
-  transform: scale(1.1);
+  transform: scale(1.2);
 }
 
 footer.footer {
-  background: linear-gradient(to right, #222, #333);
-  color: #fff;
-  padding: 2rem 1rem;
+  background: linear-gradient(to right, #111, #222);
+  color: #ddd;
+  padding: 3rem 1rem;
   text-align: center;
-  font-size: 0.95rem;
+  font-size: 1rem;
   margin-top: 2rem;
   border-top: 4px solid #f0c000;
 }
@@ -226,66 +295,10 @@ footer.footer {
   color: #f0c000;
 }
 
-.destacado {
-  border-left: 6px solid #f0c000;
-  border-top: 4px solid #f0c000;
-  background: #fffdf5;
-  box-shadow: 0 0 0 3px #ffe580aa, 0 6px 12px rgba(0,0,0,0.15);
-  transform: scale(1.02);
-  position: relative;
-  z-index: 1;
-}
-
-.destacado::before {
-  content: "⭐ Más popular";
-  position: absolute;
-  top: -12px;
-  left: -12px;
-  background: #f0c000;
-  color: #fff;
-  font-size: 0.75rem;
-  padding: 4px 8px;
-  border-radius: 8px;
-  font-weight: bold;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-}
-
-.showcase {
-  background-color: #fff;
-  padding: 3rem 2rem;
-  text-align: center;
-}
-
-.showcase h2 {
-  color: #f0c000;
-  font-size: 2rem;
-  margin-bottom: 2rem;
-}
-
-.image-frame {
-  display: inline-block;
-  border: 8px solid #f0c000;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-  overflow: hidden;
-  max-width: 90%;
-}
-
-.image-frame img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-form {
-  margin-bottom: 4rem; /* Añade espacio antes del footer */
-}
-
-/* --- RESPONSIVE DESIGN --- */
 @media (max-width: 768px) {
   header.hero {
     flex-direction: column;
-    padding: 2rem 1rem;
+    padding: 3rem 1.5rem;
   }
 
   .logo {
@@ -321,7 +334,7 @@ form {
   }
 
   form {
-    padding: 1.5rem 1rem;
+    padding: 2rem 1rem;
     margin: 0 1rem 4rem;
   }
 
@@ -330,12 +343,136 @@ form {
   }
 
   footer.footer {
-    font-size: 0.85rem;
-    padding: 1.5rem 1rem;
+    font-size: 0.9rem;
+    padding: 2rem 1rem;
   }
 
   .whatsapp-icon {
     width: 50px;
     height: 50px;
   }
+}
+
+/* === Fade-in animation === */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* === NAVBAR === */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #1c1c1c;
+  border-bottom: 2px solid #f0c000;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo {
+  font-weight: bold;
+  color: #f0c000;
+  font-size: 1.1rem;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #f2f2f2;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #f0c000;
+}
+
+/* Compensar el espacio del nav para que no tape el header */
+body {
+  padding-top: 70px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* === REVIEWS === */
+.reviews {
+  background-color: #2a2a2a;
+  padding: 5rem 2rem;
+  text-align: center;
+}
+
+.reviews h2 {
+  color: #f0c000;
+  font-size: 2rem;
+  margin-bottom: 3rem;
+}
+
+.review-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.review-card {
+  background-color: #1e1e1e;
+  border: 1px solid #444;
+  padding: 2rem;
+  border-radius: 10px;
+  color: #f2f2f2;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+
+.review-card:hover {
+  transform: translateY(-4px);
+}
+
+.review-card h3 {
+  margin-top: 0;
+  color: #f0c000;
+  font-size: 1.2rem;
+}
+
+.review-card .persona {
+  font-style: italic;
+  font-size: 0.95rem;
+  color: #aaa;
+  margin-bottom: 0.5rem;
+}
+
+.review-card .stars {
+  color: #f0c000;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.review-card .texto {
+  font-size: 1rem;
 }
